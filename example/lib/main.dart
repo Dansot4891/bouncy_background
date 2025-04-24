@@ -30,11 +30,12 @@ class BouncyBackgroundEx extends StatelessWidget {
           boxHeight: 50,
           boxWidth: 50,
           boxCount: 10,
+          ratationSpeed: 0.05,
+          isScaffold: false,
           bouncyWidget: Container(
             width: 50,
             height: 50,
             decoration: const BoxDecoration(
-              shape: BoxShape.circle,
               color: Colors.purple,
             ),
           ),
