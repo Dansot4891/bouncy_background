@@ -22,8 +22,8 @@ flutter pub add bouncy_background
 ```
 
 ## 📸 Preview
-<img width=30% src='https://github.com/user-attachments/assets/c5a84acf-1a70-4258-9c92-e7e9f4d62206'>
-<img width=30% src='https://github.com/user-attachments/assets/580820d4-86da-435a-826b-b5329f2caf25'>
+![Preview 1](https://raw.githubusercontent.com/Dansot4891/bouncy_background/main/screenshots/example_view_1.gif)
+![Preview 2](https://raw.githubusercontent.com/Dansot4891/bouncy_background/main/screenshots/example_view_2.gif)
 
 
 ## ⚠️⚠️⚠️ Important: Required Setup ⚠️⚠️⚠️
