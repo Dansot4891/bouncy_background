@@ -23,12 +23,15 @@ class BouncyBackground extends StatefulWidget {
   // bouncy widget
   final Widget bouncyWidget;
 
+  // ----- widget variation -----
   // inner widget width
   final double boxWidth;
   // inner widget height
   final double boxHeight;
   // box count
   final int boxCount;
+  // rotate speed
+  final double? ratationSpeed;
 
   const BouncyBackground({
     required this.body,
@@ -44,6 +47,7 @@ class BouncyBackground extends StatefulWidget {
     required this.bouncyWidget,
     required this.boxWidth,
     required this.boxHeight,
+    this.ratationSpeed,
     super.key,
   });
 
@@ -65,6 +69,7 @@ class _BouncyBackgroundState extends State<BouncyBackground>
       boxCount: widget.boxCount,
       boxHeight: widget.boxHeight,
       boxWidth: widget.boxWidth,
+      ratationSpeed: widget.ratationSpeed,
     );
     _controller = AnimationController(
       vsync: this,

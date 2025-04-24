@@ -18,6 +18,7 @@ class BoxController {
     required int boxCount,
     required double boxWidth,
     required double boxHeight,
+    double? ratationSpeed,
   }) {
     if (!_initialized) {
       _initBoxes(
@@ -26,6 +27,7 @@ class BoxController {
         boxCount: boxCount,
         boxWidth: boxWidth,
         boxHeight: boxHeight,
+        ratationSpeed: ratationSpeed,
       );
     }
     return _boxes;
@@ -48,6 +50,7 @@ class BoxController {
     required int boxCount,
     required double boxWidth,
     required double boxHeight,
+    double? ratationSpeed,
   }) {
     // if initialized => return
     if (_initialized) return;
@@ -62,7 +65,7 @@ class BoxController {
           dx: _random.nextDouble(1) * 2,
           dy: _random.nextDouble(1) * 2,
           angle: _random.nextDouble(1) * 2,
-          rotationSpeed: (_random.nextDouble(1) - 0.5) * 0.2,
+          rotationSpeed: ratationSpeed ?? (_random.nextDouble(1) - 0.5) * 0.2,
         ),
       );
     }
