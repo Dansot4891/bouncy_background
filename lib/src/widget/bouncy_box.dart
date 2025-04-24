@@ -4,13 +4,11 @@ class BouncyBox extends StatelessWidget {
   final double left;
   final double top;
   final double angle;
-  final double boxSize;
   final Widget widget;
   const BouncyBox({
     required this.left,
     required this.top,
     required this.angle,
-    required this.boxSize,
     required this.widget,
     super.key,
   });

@@ -1,4 +1,5 @@
 import 'package:bouncy_background/src/app_size/bouncy_size.dart';
+import 'package:bouncy_background/src/model/box.dart';
 import 'package:bouncy_background/src/random/random_generator.dart';
 
 class BoxController {
@@ -7,15 +8,25 @@ class BoxController {
   BoxController._internal();
   factory BoxController() => instance;
 
-  // box variation
-  final int _boxCount = 6;
-  final double _boxSize = AppSize.ratioWidth(70);
-  final List<_Box> _boxes = [];
+  // boxes
+  final List<Box> _boxes = [];
 
   // when getting box initilize
-  List<_Box> boxes({double minusWidth = 0, double minusHeight = 0}) {
+  List<Box> boxes({
+    double minusWidth = 0,
+    double minusHeight = 0,
+    required int boxCount,
+    required double boxWidth,
+    required double boxHeight,
+  }) {
     if (!_initialized) {
-      _initBoxes(minusHeight: minusHeight, minusWidth: minusWidth);
+      _initBoxes(
+        minusHeight: minusHeight,
+        minusWidth: minusWidth,
+        boxCount: boxCount,
+        boxWidth: boxWidth,
+        boxHeight: boxHeight,
+      );
     }
     return _boxes;
   }
@@ -31,23 +42,27 @@ class BoxController {
   late double _screenHeight;
 
   // bouncy box init
-  void _initBoxes({double minusWidth = 0, double minusHeight = 0}) {
+  void _initBoxes({
+    double minusWidth = 0,
+    double minusHeight = 0,
+    required int boxCount,
+    required double boxWidth,
+    required double boxHeight,
+  }) {
     // if initialized => return
     if (_initialized) return;
 
-    _screenWidth = AppSize.screenWidth - minusWidth;
-    _screenHeight = AppSize.screenHeight - minusHeight;
-
-    for (int i = 0; i < _boxCount; i++) {
+    _screenWidth = BouncyDeviceSize.screenWidth - minusWidth;
+    _screenHeight = BouncyDeviceSize.screenHeight - minusHeight;
+    for (int i = 0; i < boxCount; i++) {
       _boxes.add(
-        _Box(
-          x: _random.nextDouble(0.8) * _screenWidth,
-          y: _random.nextDouble(0.8) * _screenHeight,
+        Box(
+          x: _random.nextDouble(0.6) * _screenWidth,
+          y: _random.nextDouble(0.6) * _screenHeight,
           dx: _random.nextDouble(1) * 2,
           dy: _random.nextDouble(1) * 2,
           angle: _random.nextDouble(1) * 2,
           rotationSpeed: (_random.nextDouble(1) - 0.5) * 0.2,
-          boxSize: _boxSize,
         ),
       );
     }
@@ -55,7 +70,10 @@ class BoxController {
   }
 
   // box update
-  void updateBoxes() {
+  void updateBoxes({
+    required double boxWidth,
+    required double boxHeight,
+  }) {
     // if initialized => return
     if (!_initialized) {
       return;
@@ -65,33 +83,12 @@ class BoxController {
       box.y += box.dy;
       box.angle += box.rotationSpeed;
 
-      if (box.x <= 0 || box.x + _boxSize >= _screenWidth) {
+      if (box.x <= 0 || box.x + boxWidth >= _screenWidth) {
         box.dx = -box.dx;
       }
-      if (box.y <= 0 || box.y + _boxSize >= _screenHeight) {
+      if (box.y <= 0 || box.y + boxHeight >= _screenHeight) {
         box.dy = -box.dy;
       }
     }
   }
-}
-
-// box class
-class _Box {
-  double x; // from left location
-  double y; // from top location
-  double dx; // Horizontal movement distance
-  double dy; // Vertical movement distance
-  double angle; // Current rotation angle of the box
-  final double rotationSpeed; // Rotation speed of the box
-  final double boxSize; // Size of the box
-
-  _Box({
-    required this.x,
-    required this.y,
-    required this.dx,
-    required this.dy,
-    required this.angle,
-    required this.rotationSpeed,
-    required this.boxSize,
-  });
 }

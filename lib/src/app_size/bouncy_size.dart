@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AppSize {
-  AppSize._();
+class BouncyDeviceSize {
+  BouncyDeviceSize._();
 
   static late double devicePixelRatio; // 디바이스 픽셀 비율
   static late double screenWidth; // 디바이스 넓이
