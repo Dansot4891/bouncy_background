@@ -24,6 +24,12 @@ OR Run
 flutter pub add bouncy_background
 ```
 
+## 📸 Preview
+---
+![Demo](https://github.com/Dansot4891/bouncy_background/blob/develop/screenshots/example_view_1.gif)
+![Demo](https://github.com/Dansot4891/bouncy_background/blob/develop/screenshots/example_view_2.gif)
+
+
 ## Usage
 ---
 You are free to use the background with or without Scaffold.
@@ -86,9 +92,24 @@ class BouncyBackgroundEx extends StatelessWidget {
 }
 ```
 
-## 📸 Preview
+## ⚙️ BouncyBackground Parameters
 ---
-![Demo](https://github.com/yourname/bouncy_background/blob/main/example.gif)
+| Parameter               | Type                        | Required | Default      | Description                                                                 |
+|-------------------------|-----------------------------|----------|--------------|-----------------------------------------------------------------------------|
+| `body`                  | `Widget`                    | ✅ Yes    | –            | The main body widget of the screen                                          |
+| `appBar`                | `PreferredSizeWidget?`      | ❌ No     | `null`       | Scaffold app bar                                                            |
+| `bottomNavigationBar`   | `Widget?`                   | ❌ No     | `null`       | Scaffold bottom navigation bar                                              |
+| `floatingActionButton`  | `FloatingActionButton?`     | ❌ No     | `null`       | Scaffold floating action button                                             |
+| `backgroundColor`       | `Color?`                    | ❌ No     | `null`       | Background color of the Scaffold                                            |
+| `resizeToAvoidBottomInset` | `bool?`                | ❌ No     | `null`       | Whether to resize when keyboard appears                                     |
+| `minusWidth`            | `double`                    | ❌ No     | `0`          | Horizontal overflow range (how far widget can bounce off-screen)           |
+| `minusHeight`           | `double`                    | ❌ No     | `0`          | Vertical overflow range (how far widget can bounce off-screen)             |
+| `isScaffold`            | `bool`                      | ❌ No     | `true`       | Use Scaffold internally or not                                              |
+| `bouncyWidget`          | `Widget`                    | ✅ Yes    | –            | The widget that will be duplicated and animated                            |
+| `boxWidth`              | `double`                    | ✅ Yes    | –            | Width of each bouncy widget                                                 |
+| `boxHeight`             | `double`                    | ✅ Yes    | –            | Height of each bouncy widget                                                |
+| `boxCount`              | `int`                       | ✅ Yes    | –            | Number of widgets to animate                                                |
+
 
 ## 📄 License
 ---
