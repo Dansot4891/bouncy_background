@@ -6,4 +6,4 @@
 - 📝 Updated README documentation
 
 ## [1.0.2]
-- 👍 Control rotation speed per object
+- 👍 Added support to control `rotationSpeed` per object

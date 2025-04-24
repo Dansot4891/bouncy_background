@@ -82,7 +82,11 @@ class BouncyBackgroundEx extends StatelessWidget {
           // For Example,
           // if you set bottomNaviation, minusHeight about 100 setting
           minusHeight: 100,
-          
+          // rotate speed
+          // if rotateSpeed = 0
+          //    => not rotate
+          //    => generally, -0.05 <= rotateSpeed <= 0.05
+          ratationSpeed: 0.05,
           boxHeight: 50, // inner widget height
           boxWidth: 50, // inner widget width
           boxCount: 10, // inner widget count
@@ -129,7 +133,7 @@ class BouncyBackgroundEx extends StatelessWidget {
 | `boxCount`              | `int`                       | ✅ Yes    | –            | Number of widgets to animate                                                |
 
 ## 🛠️ Planned Features / TODO
-- [ ] Control rotation speed per object
+- [✅] Control rotation speed per object
 - [ ] Set movement speed per object
 - [ ] Support multiple types of bouncy widgets in one background
 - [ ] Direction bias (e.g., only left/right bounce)
