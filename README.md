@@ -110,6 +110,13 @@ class BouncyBackgroundEx extends StatelessWidget {
 | `boxHeight`             | `double`                    | ✅ Yes    | –            | Height of each bouncy widget                                                |
 | `boxCount`              | `int`                       | ✅ Yes    | –            | Number of widgets to animate                                                |
 
+## 🛠️ Planned Features / TODO
+---
+- [ ] Control rotation speed per object
+- [ ] Set movement speed per object
+- [ ] Support multiple types of bouncy widgets in one background
+- [ ] Direction bias (e.g., only left/right bounce)
+
 
 ## 📄 License
 ---
