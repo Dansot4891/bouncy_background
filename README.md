@@ -14,7 +14,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  bouncy_background: ^1.0.2
+  bouncy_background: ^1.0.3
 ```
 OR Run
 ```
@@ -22,8 +22,8 @@ flutter pub add bouncy_background
 ```
 
 ## 📸 Preview
-![Preview 1](https://raw.githubusercontent.com/Dansot4891/bouncy_background/main/screenshots/example_view_1.gif)
-![Preview 2](https://raw.githubusercontent.com/Dansot4891/bouncy_background/main/screenshots/example_view_2.gif)
+<img width=30% src='https://github.com/Dansot4891/bouncy_background/raw/main/screenshots/example_view_1.gif'>
+<img width=30% src='https://github.com/Dansot4891/bouncy_background/raw/main/screenshots/example_view_2.gif'>
 
 
 ## ⚠️⚠️⚠️ Important: Required Setup ⚠️⚠️⚠️

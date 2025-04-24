@@ -1,6 +1,6 @@
 name: bouncy_background
 description: "Adds animated, bouncing widgets to the background of your Flutter app"
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/Dansot4891/bouncy_background
 
 environment:
