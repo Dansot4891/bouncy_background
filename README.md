@@ -1,16 +1,13 @@
 # bouncy_background
----
 A Flutter package that adds animated, bouncing widgets to your background.
 
 ## ⭐️ Features
----
 - Bouncing shapes with Random speed, size, and direction
 - Supports any widget as a bouncing object
 - Optional full-screen or behind-scaffold background
 - Customizable overflow bounds
 
 ## 💻 Installation
----
 Add this to your package's pubspec.yaml file:
 ```
 dependencies:
@@ -25,13 +22,11 @@ flutter pub add bouncy_background
 ```
 
 ## 📸 Preview
----
 ![Demo](https://github.com/Dansot4891/bouncy_background/blob/develop/screenshots/example_view_1.gif)
 ![Demo](https://github.com/Dansot4891/bouncy_background/blob/develop/screenshots/example_view_2.gif)
 
 
 ## ⚠️⚠️⚠️ Important: Required Setup ⚠️⚠️⚠️
----
 Before using `bouncy_background`, you **must initialize device size** by calling:
 
 ```dart
@@ -56,7 +51,6 @@ class MyApp extends StatelessWidget {
 ```
 
 ## Usage
----
 You are free to use the background with or without Scaffold.
 You are also free to set the size of the widgets and the widgets you want to use as backgrounds.
 However, please set the number of widgets to be in the background and the size of the widgets well.
@@ -118,7 +112,6 @@ class BouncyBackgroundEx extends StatelessWidget {
 ```
 
 ## ⚙️ BouncyBackground Parameters
----
 | Parameter               | Type                        | Required | Default      | Description                                                                 |
 |-------------------------|-----------------------------|----------|--------------|-----------------------------------------------------------------------------|
 | `body`                  | `Widget`                    | ✅ Yes    | –            | The main body widget of the screen                                          |
@@ -136,7 +129,6 @@ class BouncyBackgroundEx extends StatelessWidget {
 | `boxCount`              | `int`                       | ✅ Yes    | –            | Number of widgets to animate                                                |
 
 ## 🛠️ Planned Features / TODO
----
 - [ ] Control rotation speed per object
 - [ ] Set movement speed per object
 - [ ] Support multiple types of bouncy widgets in one background
@@ -144,6 +136,5 @@ class BouncyBackgroundEx extends StatelessWidget {
 
 
 ## 📄 License
----
 This project is licensed under the MIT License.  
 See the [LICENSE](LICENSE) file for details.
