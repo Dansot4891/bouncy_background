@@ -30,10 +30,14 @@ class BouncyBackgroundEx extends StatelessWidget {
           boxHeight: 50,
           boxWidth: 50,
           boxCount: 10,
-          bouncyWidget: Image.network(
-              width: 50,
-              height: 50,
-              'https://i.namu.wiki/i/d1A_wD4kuLHmOOFqJdVlOXVt1TWA9NfNt_HA0CS0Y_N0zayUAX8olMuv7odG2FiDLDQZIRBqbPQwBSArXfEJlQ.webp'),
+          bouncyWidget: Container(
+            width: 50,
+            height: 50,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.purple,
+            ),
+          ),
           body: const Center(
             child: Column(
               children: [],
