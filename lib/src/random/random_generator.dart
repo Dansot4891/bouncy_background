@@ -1,6 +1,6 @@
 import 'dart:math';
 
-// 싱글톤 패턴으로 관리
+// singletone
 class RandomGenerator {
   final Random _random = Random();
 

@@ -7,12 +7,12 @@ class BoxController {
   BoxController._internal();
   factory BoxController() => instance;
 
-  // 박스 관련 변수
+  // box variation
   final int _boxCount = 6;
   final double _boxSize = AppSize.ratioWidth(70);
   final List<_Box> _boxes = [];
 
-  // 박스를 가져올 때 초기화한다.
+  // when getting box initilize
   List<_Box> boxes({double minusWidth = 0, double minusHeight = 0}) {
     if (!_initialized) {
       _initBoxes(minusHeight: minusHeight, minusWidth: minusWidth);
@@ -20,25 +20,23 @@ class BoxController {
     return _boxes;
   }
 
-  // 랜덤 생성 class
+  // random generator
   final _random = RandomGenerator();
 
-  // 초기화 변수
+  // is initialized
   bool _initialized = false;
 
+  // divice width & height
   late double _screenWidth;
   late double _screenHeight;
 
-  // 박스 초기화
+  // bouncy box init
   void _initBoxes({double minusWidth = 0, double minusHeight = 0}) {
-    // 이미 초기화 되어있다면 return;
+    // if initialized => return
     if (_initialized) return;
 
     _screenWidth = AppSize.screenWidth - minusWidth;
-    _screenHeight = AppSize.screenHeight -
-        AppSize.screenPadding.bottom -
-        AppSize.screenPadding.top -
-        minusHeight;
+    _screenHeight = AppSize.screenHeight - minusHeight;
 
     for (int i = 0; i < _boxCount; i++) {
       _boxes.add(
@@ -56,9 +54,9 @@ class BoxController {
     _initialized = true;
   }
 
-  // 박스 업데이트
+  // box update
   void updateBoxes() {
-    // 만약 초기화되지 않았다면 return
+    // if initialized => return
     if (!_initialized) {
       return;
     }
@@ -77,15 +75,15 @@ class BoxController {
   }
 }
 
-// 여기서만 사용되는 클래스
+// box class
 class _Box {
-  double x; // 좌우 위치
-  double y; // 상하 위치
-  double dx; // 좌우 이동 거리
-  double dy; // 상하 이동 거리
-  double angle; // 박스가 돌려진 정도
-  final double rotationSpeed; // 돌려지는 속도
-  final double boxSize;
+  double x; // from left location
+  double y; // from top location
+  double dx; // Horizontal movement distance
+  double dy; // Vertical movement distance
+  double angle; // Current rotation angle of the box
+  final double rotationSpeed; // Rotation speed of the box
+  final double boxSize; // Size of the box
 
   _Box({
     required this.x,

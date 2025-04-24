@@ -5,13 +5,13 @@ class BouncyBox extends StatelessWidget {
   final double top;
   final double angle;
   final double boxSize;
-  final Color? color;
+  final Widget widget;
   const BouncyBox({
     required this.left,
     required this.top,
     required this.angle,
     required this.boxSize,
-    this.color,
+    required this.widget,
     super.key,
   });
 
@@ -22,11 +22,7 @@ class BouncyBox extends StatelessWidget {
       top: top,
       child: Transform.rotate(
         angle: angle,
-        child: Container(
-          width: boxSize,
-          height: boxSize,
-          decoration: BoxDecoration(color: color),
-        ),
+        child: widget,
       ),
     );
   }
