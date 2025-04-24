@@ -1,5 +1,5 @@
+import 'package:bouncy_background/bouncy_background.dart';
 import 'package:flutter/material.dart';
-import 'package:bouncy_background/bouncy_background_package.dart';
 
 void main() {
   runApp(const MyApp());

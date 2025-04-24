@@ -30,6 +30,31 @@ flutter pub add bouncy_background
 ![Demo](https://github.com/Dansot4891/bouncy_background/blob/develop/screenshots/example_view_2.gif)
 
 
+## ⚠️⚠️⚠️ Important: Required Setup ⚠️⚠️⚠️
+---
+Before using `bouncy_background`, you **must initialize device size** by calling:
+
+```dart
+BouncyDeviceSize.init(context);
+```
+This should be done at the very beginning of your app,
+inside the build() method of your root widget, like this:
+### Example
+```dart
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    BouncyDeviceSize.init(context); // ✅ MUST be called here!
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: BouncyBackgroundEx(),
+    );
+  }
+}
+```
+
 ## Usage
 ---
 You are free to use the background with or without Scaffold.
