@@ -57,13 +57,13 @@ class BouncyBackground extends StatefulWidget {
 
 class _BouncyBackgroundState extends State<BouncyBackground>
     with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late List<Box> boxes;
+  late final AnimationController _controller;
+  late final List<Box> boxes;
 
   @override
   void initState() {
-    final boxController = BoxController();
-    boxes = boxController.boxes(
+    super.initState();
+    boxes = BoxController.instance.boxes(
       minusWidth: widget.minusWidth,
       minusHeight: widget.minusHeight,
       boxCount: widget.boxCount,
@@ -71,18 +71,11 @@ class _BouncyBackgroundState extends State<BouncyBackground>
       boxWidth: widget.boxWidth,
       ratationSpeed: widget.ratationSpeed,
     );
+
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(days: 1),
-    )..addListener(() {
-        BoxController.instance.updateBoxes(
-          boxHeight: widget.boxHeight,
-          boxWidth: widget.boxWidth,
-        );
-        setState(() {});
-      });
-    _controller.repeat(); // repeat
-    super.initState();
+    )..repeat();
   }
 
   @override
@@ -93,41 +86,41 @@ class _BouncyBackgroundState extends State<BouncyBackground>
 
   @override
   Widget build(BuildContext context) {
-    if (!widget.isScaffold) {
-      return Stack(
-        children: [
-          ...boxes.map(
-            (box) => BouncyBox(
-              left: box.x,
-              top: box.y,
-              angle: box.angle,
-              widget: widget.bouncyWidget,
-            ),
-          ),
-          widget.body,
-        ],
-      );
-    }
-
-    return Scaffold(
-      appBar: widget.appBar,
-      bottomNavigationBar: widget.bottomNavigationBar,
-      floatingActionButton: widget.floatingActionButton,
-      backgroundColor: widget.backgroundColor,
-      resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
-      body: Stack(
-        children: [
-          ...boxes.map(
-            (box) => BouncyBox(
-              left: box.x,
-              top: box.y,
-              angle: box.angle,
-              widget: widget.bouncyWidget,
-            ),
-          ),
-          widget.body,
-        ],
-      ),
+    // 여기서 widget.body를 child로 넘겨서, 애니메이션 빌더 안에서 재사용
+    final animatedBoxes = AnimatedBuilder(
+      animation: _controller,
+      child: widget.body,
+      builder: (context, child) {
+        // 매 프레임 박스 위치만 업데이트
+        BoxController.instance.updateBoxes(
+          boxHeight: widget.boxHeight,
+          boxWidth: widget.boxWidth,
+        );
+        return Stack(
+          children: [
+            // 움직이는 박스 레이어
+            ...boxes.map((box) => BouncyBox(
+                  left: box.x,
+                  top: box.y,
+                  angle: box.angle,
+                  widget: widget.bouncyWidget,
+                )),
+            // 한 번만 빌드되는 본문
+            if (child != null) child,
+          ],
+        );
+      },
     );
+
+    return widget.isScaffold
+        ? Scaffold(
+            appBar: widget.appBar,
+            bottomNavigationBar: widget.bottomNavigationBar,
+            floatingActionButton: widget.floatingActionButton,
+            backgroundColor: widget.backgroundColor,
+            resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
+            body: animatedBoxes,
+          )
+        : animatedBoxes;
   }
 }

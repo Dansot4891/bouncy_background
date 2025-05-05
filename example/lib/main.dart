@@ -41,7 +41,15 @@ class BouncyBackgroundEx extends StatelessWidget {
           ),
           body: const Center(
             child: Column(
-              children: [],
+              children: [
+                Text('data'),
+                Text('data1'),
+                Text('data2'),
+                Text('data34'),
+                Text('data12341234'),
+                Text('data22'),
+                Text('data25'),
+              ],
             ),
           ),
         ),
