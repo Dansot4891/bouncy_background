@@ -11,3 +11,6 @@
 
 ## [1.0.3]
 - 📝 Updated README documentation
+
+## [1.0.4]
+- ⚡️ Switched `BouncyBackground` animation logic from `setState` to `AnimatedBuilder`, caching the `body` build and improving rendering performance  
