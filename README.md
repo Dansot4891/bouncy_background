@@ -14,7 +14,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  bouncy_background: ^1.0.3
+  bouncy_background: ^1.0.4
 ```
 OR Run
 ```
